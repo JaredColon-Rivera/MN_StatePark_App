@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/parks/tabs/metro"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{metroPark.parkName}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" class="ion-text-center">
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-sm="8" offset-sm="2">
+        <ion-card>
+          <ion-img [src]="metroPark.imageUrl" class="ion-no-padding"></ion-img>
+          <ion-button (click)="onPictureClick()">
+            Photo Gallery
+          </ion-button>
+          <ion-card-content class="ion-no-padding">
+            Photos provided by the Minnesota DNR
+            https://www.dnr.state.mn.us/
+          </ion-card-content>
+        </ion-card>
+        <ion-item>
+          <ion-label color="primary">Hours</ion-label>
+          <ion-icon slot="end" name="time-outline"></ion-icon>
+          {{metroPark.hours}}
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Current Temperature</ion-label>
+          <ion-icon slot="end" name="thermometer-outline"></ion-icon>
+          {{this.locatedWeather?.main.temp}}
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary">Weather</ion-label>
+          <ion-icon slot="end" name="sunny-outline"></ion-icon>
+          {{this.locatedWeather?.weather[0].main}}
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="primary">Directions</ion-label>
+          <ion-icon slot="end" name="compass-outline"></ion-icon>
+        </ion-item>
+        <ion-item class="ion-no-padding" class="ion-padding-start">
+          {{metroPark.address}}
+          <ion-img [src]="metroPark.mnMap" slot="end"></ion-img>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="primary">Points of Interest</ion-label>
+          <ion-icon slot="end" name="star-outline"></ion-icon>
+        </ion-item>
+        <ion-item class="ion-no-padding" class="ion-padding-start">
+          {{metroPark.pointOfInterest}}
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="primary">Park Information</ion-label>
+          <ion-icon name="information-circle-outline"></ion-icon>
+        </ion-item>
+        <ion-item class="ion-no-padding" class="ion-padding-start">
+          {{metroPark.description}}
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label color="primary">What To Do</ion-label>
+          <ion-icon name="accessibility-outline"></ion-icon>
+        </ion-item>
+        <ion-item lines="none" class="ion-no-padding" class="ion-padding-start"
+          *ngFor="let activity of metroPark.activities; index as i">
+          {{metroPark.activities[i]}}
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

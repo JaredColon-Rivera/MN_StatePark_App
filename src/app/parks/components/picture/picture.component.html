@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      {{selectedPlace.parkName}}
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button (click)="onCancel()">
+        <ion-icon name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-text-center">
+  <!-- <ion-card>
+    <ion-label>
+      Photos provided by Minnesota DNR
+    </ion-label>
+    <ion-label>
+      https://www.dnr.state.mn.us/
+    </ion-label>
+  </ion-card> -->
+  <ion-card>
+    <ion-img [src]="selectedPlace.imageUrl" class="ion-no-padding"></ion-img>
+  </ion-card>
+  <ion-card>
+    <ion-img [src]="selectedPlace.photoGallery[0]"></ion-img>
+  </ion-card>
+  <ion-card>
+    <ion-img [src]="selectedPlace.photoGallery[1]"></ion-img>
+  </ion-card>
+  <ion-card>
+    <ion-img [src]="selectedPlace.photoGallery[2]"></ion-img>
+  </ion-card>
+  <ion-card>
+    <ion-img [src]="selectedPlace.photoGallery[3]"></ion-img>
+  </ion-card>
+  <ion-row style="height: 200px"></ion-row>
+</ion-content>

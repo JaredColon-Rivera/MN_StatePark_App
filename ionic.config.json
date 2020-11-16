@@ -1,0 +1,7 @@
+{
+  "name": "MN_StatePark_App",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
