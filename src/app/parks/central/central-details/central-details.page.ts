@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { ModalController, NavController } from '@ionic/angular';
+import { PictureComponent } from '../../components/picture/picture.component';
 import { Parks } from '../../park.model';
 import { ParksService } from '../../parks.service';
 
@@ -11,10 +12,12 @@ import { ParksService } from '../../parks.service';
 })
 export class CentralDetailsPage implements OnInit {
   centralPark: Parks;
+  public locatedWeather: any;
   constructor(
     private route: ActivatedRoute,
     private navCtrl: NavController,
-    private parksService: ParksService
+    private parksService: ParksService,
+    private modalController: ModalController
   ) { }
 
   ngOnInit() {
@@ -24,6 +27,22 @@ export class CentralDetailsPage implements OnInit {
         return;
       }
       this.centralPark = this.parksService.getCentralParks(paramMap.get("centralParkId"));
+    })
+  }
+
+  ngAfterViewInit() {
+    this.parksService.getWeather(this.centralPark.zipcode).subscribe(data => {
+      this.locatedWeather = data;
+    });
+  }
+
+  onPictureClick() {
+    this.modalController.create({
+      component: PictureComponent,
+      componentProps: { selectedPlace: this.centralPark },
+    }).then((modalEl) => {
+      modalEl.present();
+      return modalEl.onDidDismiss();
     })
   }
 }

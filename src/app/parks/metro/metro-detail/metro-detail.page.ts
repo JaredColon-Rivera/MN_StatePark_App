@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ModalController, NavController } from '@ionic/angular';
-import { take } from 'rxjs/operators';
 import { PictureComponent } from '../../components/picture/picture.component';
 import { Parks } from '../../park.model';
 import { ParksService } from '../../parks.service';
