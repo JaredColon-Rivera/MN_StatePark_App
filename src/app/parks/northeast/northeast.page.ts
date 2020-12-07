@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Parks } from '../park.model';
+import { ParksService } from '../parks.service';
 
 @Component({
   selector: 'app-northeast',
@@ -6,10 +8,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./northeast.page.scss'],
 })
 export class NortheastPage implements OnInit {
+  northeastParks: Parks[];
 
-  constructor() { }
+  constructor(private parksService: ParksService) { }
 
   ngOnInit() {
+    this.northeastParks = this.parksService.northeastParks;
   }
-
 }

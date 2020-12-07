@@ -42,25 +42,72 @@
             </ion-item>
 
 
-            <!--Northern Area-->
+            <!--Northeast Area-->
+
+            <ion-item-divider>
+              <ion-label>
+                <h2>Northeast Area State Parks</h2>
+              </ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let northeastPark of northeastParks"
+              [routerLink]="['/', 'parks', 'tabs', 'northeast', northeastPark.id]" detail>
+              <ion-label>{{northeastPark.parkName}}</ion-label>
+              <ion-thumbnail slot="start">
+                <ion-img [src]="northeastPark.imageUrl"></ion-img>
+              </ion-thumbnail>
+            </ion-item>
+
+            <!--Northwest Area-->
+
+            <ion-item-divider>
+              <ion-label>
+                <h2>Northwest Area State Parks</h2>
+              </ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let northwestPark of northwestParks"
+              [routerLink]="['/', 'parks', 'tabs', 'northwest', northwestPark.id]" detail>
+              <ion-label>{{northwestPark.parkName}}</ion-label>
+              <ion-thumbnail slot="start">
+                <ion-img [src]="northwestPark.imageUrl"></ion-img>
+              </ion-thumbnail>
+            </ion-item>
 
 
+            <!--Southeast Area-->
 
-            <!--Southern Area-->
+            <ion-item-divider>
+              <ion-label>
+                <h2>Southeast Area State Parks</h2>
+              </ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let southeastPark of southeastParks"
+              [routerLink]="['/', 'parks', 'tabs', 'southeast', southeastPark.id]" detail>
+              <ion-label>{{southeastPark.parkName}}</ion-label>
+              <ion-thumbnail slot="start">
+                <ion-img [src]="southeastPark.imageUrl"></ion-img>
+              </ion-thumbnail>
+            </ion-item>
 
+            <!--Southwest Area-->
 
-
-            <!--Eastern Area-->
-
-
-
-            <!--Western Area-->
-
-
+            <ion-item-divider>
+              <ion-label>
+                <h2>Southwest Area State Parks</h2>
+              </ion-label>
+            </ion-item-divider>
+            <ion-item *ngFor="let southwestPark of southwestParks"
+              [routerLink]="['/', 'parks', 'tabs', 'southwest', southwestPark.id]" detail>
+              <ion-label>{{southwestPark.parkName}}</ion-label>
+              <ion-thumbnail slot="start">
+                <ion-img [src]="southwestPark.imageUrl"></ion-img>
+              </ion-thumbnail>
+            </ion-item>
 
           </ion-item-group>
         </ion-list>
       </ion-col>
     </ion-row>
   </ion-grid>
+  <ion-item>
+  </ion-item>
 </ion-content>

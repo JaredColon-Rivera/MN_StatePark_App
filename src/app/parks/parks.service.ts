@@ -8,6 +8,7 @@ import { Parks } from './park.model';
 })
 export class ParksService {
 
+  /* Metro Parks Data */
   private _metroParks: Parks[] = [
     new Parks(
       "metro1",
@@ -77,6 +78,7 @@ export class ParksService {
 
   ];
 
+  /* Central Parks Data */
   private _centralParks: Parks[] = [
     new Parks(
       "central1",
@@ -267,6 +269,79 @@ export class ParksService {
 
   ];
 
+  /* Northeast Parks Data */
+  private _northeastParks: Parks[] =
+    [
+      new Parks(
+        "northeast1",
+        "Bear Head Lake",
+        "description",
+        "",
+        "",
+        "",
+        "",
+        [""],
+        "",
+        "",
+        [""]
+      ),
+    ];
+
+  /* Northwest Parks Data */
+  private _northwestParks: Parks[] =
+    [
+      new Parks(
+        "northwest1",
+        "Big Bog SRA",
+        "description",
+        "",
+        "",
+        "",
+        "",
+        [""],
+        "",
+        "",
+        [""]
+      ),
+    ];
+
+  /* Southeast Parks Data */
+  private _southeastParks: Parks[] =
+    [
+      new Parks(
+        "southeast1",
+        "Beaver Creek Valley",
+        "description",
+        "",
+        "",
+        "",
+        "",
+        [""],
+        "",
+        "",
+        [""]
+      ),
+    ];
+
+  /* Southwest Parks Data */
+  private _southwestParks: Parks[] =
+    [
+      new Parks(
+        "southwest1",
+        "Big Stone Lake",
+        "description",
+        "",
+        "",
+        "",
+        "",
+        [""],
+        "",
+        "",
+        [""]
+      ),
+    ];
+
+  /* Metro Parks Getters */
   get metroParks() {
     return [...this._metroParks]
   }
@@ -275,6 +350,7 @@ export class ParksService {
     return { ...this._metroParks.find((p) => p.id === id) };
   }
 
+  /* Central Parks Getters */
   get centralParks() {
     return [...this._centralParks]
   }
@@ -283,6 +359,43 @@ export class ParksService {
     return { ...this._centralParks.find((p) => p.id === id) };
   }
 
+  /* Northeast Parks Getters */
+  get northeastParks() {
+    return [...this._northeastParks]
+  }
+
+  getNortheastParks(id: string) {
+    return { ...this._northeastParks.find((p) => p.id === id) };
+  }
+
+  /* Northwest Parks Getters */
+  get northwestParks() {
+    return [...this._northwestParks]
+  }
+
+  getNorthwestParks(id: string) {
+    return { ...this._northwestParks.find((p) => p.id === id) };
+  }
+
+  /* Southeast Parks Getters */
+  get southeastParks() {
+    return [...this._southeastParks]
+  }
+
+  getSoutheastParks(id: string) {
+    return { ...this._southeastParks.find((p) => p.id === id) };
+  }
+
+  /* Southwest Parks Getters */
+  get southwestParks() {
+    return [...this._southwestParks]
+  }
+
+  getSouthwestParks(id: string) {
+    return { ...this._southwestParks.find((p) => p.id === id) };
+  }
+
+  /* Weather Api Getter */
   getWeather(zipcode: string) {
     return this.http.get(`https://api.openweathermap.org/data/2.5/weather?zip=${zipcode},us&appid=${environment.weatherAPIKey}&units=imperial`)
   }

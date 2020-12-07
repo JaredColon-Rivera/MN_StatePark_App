@@ -7,6 +7,10 @@ const routes: Routes = [
   {
     path: '',
     component: SoutheastPage
+  },
+  {
+    path: 'southeast-details',
+    loadChildren: () => import('./southeast-details/southeast-details.module').then( m => m.SoutheastDetailsPageModule)
   }
 ];
 

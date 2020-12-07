@@ -10,16 +10,20 @@ import { ParksService } from '../parks.service';
 export class MainPage implements OnInit {
   metroParks: Parks[];
   centralParks: Parks[];
-  northParks: Parks[];
-  southParks: Parks[];
-  eastParks: Parks[];
-  westParks: Parks[];
+  northeastParks: Parks[];
+  northwestParks: Parks[];
+  southeastParks: Parks[];
+  southwestParks: Parks[]
 
   constructor(private parksService: ParksService) { }
 
   ngOnInit() {
     this.metroParks = this.parksService.metroParks;
     this.centralParks = this.parksService.centralParks;
+    this.northeastParks = this.parksService.northeastParks;
+    this.northwestParks = this.parksService.northwestParks;
+    this.southeastParks = this.parksService.southeastParks;
+    this.southwestParks = this.parksService.southwestParks;
   }
 
 }

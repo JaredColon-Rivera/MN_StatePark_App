@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Parks } from '../park.model';
+import { ParksService } from '../parks.service';
 
 @Component({
   selector: 'app-northwest',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NorthwestPage implements OnInit {
 
-  constructor() { }
+  northwestParks: Parks[]
+
+  constructor(private parksService: ParksService) { }
 
   ngOnInit() {
+    this.northwestParks = this.parksService.northwestParks;
   }
 
 }
