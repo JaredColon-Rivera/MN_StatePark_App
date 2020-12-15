@@ -2,7 +2,7 @@ export class Parks {
     constructor(
         public id: string,
         public parkName: string,
-        public description: string,
+        // public description: string,
         public pointOfInterest: string,
         public address: string,
         public mnMap: string,

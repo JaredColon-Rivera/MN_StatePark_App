@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Parks } from '../../park.model';
+import { ParksService } from '../../parks.service';
 
 @Component({
   selector: 'app-picture',
@@ -10,10 +11,9 @@ import { Parks } from '../../park.model';
 export class PictureComponent implements OnInit {
   selectedPlace: Parks;
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private parksService: ParksService) { }
 
   ngOnInit() {
-
   }
 
   onCancel() {

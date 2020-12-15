@@ -12,6 +12,7 @@ import { ParksService } from '../../parks.service';
 })
 export class MetroDetailPage implements OnInit, AfterViewInit {
   metroPark: Parks;
+  private componentProperty: any;
   public locatedWeather: any;
   constructor(
     private route: ActivatedRoute,
@@ -36,13 +37,12 @@ export class MetroDetailPage implements OnInit, AfterViewInit {
     });
   }
 
-  onPictureClick() {
-    this.modalController.create({
+  async onPictureClick() {
+    await this.modalController.create({
       component: PictureComponent,
       componentProps: { selectedPlace: this.metroPark },
-    }).then((modalEl) => {
-      modalEl.present();
-      return modalEl.onDidDismiss();
+    }).then(async (modalEl) => {
+      return await modalEl.present();
     })
   }
 
